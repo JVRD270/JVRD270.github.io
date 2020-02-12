@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Pomodoro App</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./assets/css/pomodoro.css" />
+    <link rel="stylesheet" href="./assets/css/all.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Jura:400,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="assets/js/lib/jquery-2.1.4.min.js"></script>
+    <script src="assets/js/lib/progressbar.min.js"></script>
+  </head>
+  <body>
+    <!-- <div class="title">
+      <h1>Let's Work!</h1>
+    </div> -->
+
+    <div id="circle" class="container">
+      <div class="inner">
+        <ul>
+          <li><input class="minutes" type="text" /></li>
+          <li class="colon">:</li>
+          <li><input class="seconds" type="text" /></li>
+        </ul>
+        <h2>LET'S START</h2>
+      </div>
+    </div>
+    <div class="buttons">
+      <button id="workbtn">
+        <i class="play fas fa-play"></i><i class="pause fas fa-pause"></i>
+      </button>
+    </div>
+    <button id="resetbtn">RESET</button>
+
+    <script src="./assets/js/pomodoro.js" async defer></script>
+  </body>
+</html>
