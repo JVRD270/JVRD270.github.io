@@ -43,7 +43,8 @@ var slidertext2 = $(".frame2 h6");
 var slidertext3 = $(".frame3 h6");
 
 ////
-
+var width = $(".container").css("width");
+$(".container").css("height", width);
 setTimer(t);
 setTimeBreak(timeBreak);
 $("input").attr("size", $("input").val().length - 1);
