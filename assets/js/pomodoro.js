@@ -336,7 +336,7 @@ $(".toggleMenu").hover(
 
 /////slider1
 
-slider1.focus(function() {
+slider1.change(function() {
   count = 0;
   valueSlider1 = setInterval(function() {
     t = parseInt((parseInt(slider1.val()) / 3599) * (59 * 60 + 59));
@@ -359,7 +359,6 @@ slider1.focus(function() {
 });
 
 slider1.focusout(function() {
-  console.log("focused out");
   clearInterval(valueSlider1);
   clearInterval(counter1);
 });
