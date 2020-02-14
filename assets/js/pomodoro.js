@@ -14,6 +14,7 @@ var currentIconId = "i.play";
 var otherIcon = "i.pause";
 var iconToggler = false;
 var sound;
+var soundOn = true;
 var myAudio = new Audio("./assets/app_alert_tone_023.mp3");
 var progressBar = new ProgressBar.Circle("#circle", {
   color: "rgb( 190, 0, 0)",
@@ -59,6 +60,13 @@ $("input").focusout(function(e) {
   } else if (minutes.val() == "" || seconds.val() == "") {
     t = 0;
   }
+  timeBreak = ratio * t;
+  ratio = Math.ceil((10 * timeBreak) / t) / 10;
+  if (timeBreak === t) {
+    ratio = 1;
+  }
+  $(".frame3 h6").text(ratio.toString());
+  setTimeBreak(t);
   setTimer(t);
 });
 
@@ -68,6 +76,9 @@ function setTimer(t) {
   minutes.val(("0" + min.toString()).slice(-2));
   seconds.val(("0" + secDisplay.toString()).slice(-2));
   $(".frame1 h6").text(minutes.val() + ":" + seconds.val());
+  if (timeBreak >= t) {
+    timeBreak = t;
+  }
 }
 
 function setTimeBreak(t) {
@@ -331,6 +342,7 @@ slider1.focus(function() {
     if (timeBreak >= t) {
       timeBreak = t;
     }
+    ratio = Math.ceil((10 * timeBreak) / t) / 10;
     if (timeBreak === t) {
       ratio = 1;
     }
@@ -361,7 +373,7 @@ slider2.focus(function() {
     if (timeBreak >= t) {
       timeBreak = t;
     }
-    ratio = Math.ceil(timeBreak / t) / 10;
+    ratio = Math.ceil((10 * timeBreak) / t) / 10;
     if (timeBreak === t) {
       ratio = 1;
     }
@@ -428,4 +440,12 @@ $("input[type='range']").focus(function() {
 $("input[type='range']").focusout(function() {
   clearInterval(textValuesSliders);
   clearInterval(counterTextValues);
+});
+
+$("input[type='checkbox']").change(function() {
+  if (soundOn == true) {
+    myAudio = null;
+  } else {
+    myAudio = new Audio("./assets/app_alert_tone_023.mp3");
+  }
 });

@@ -156,3 +156,15 @@ i.lock {
   position: relative;
   width: 100%;
 }
+
+input[type="checkbox"] {
+  width: 10%;
+  margin-top: 0.6rem;
+}
+
+h4 {
+  color: #d3d3d3;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
