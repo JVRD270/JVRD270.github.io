@@ -12,10 +12,63 @@
       href="https://fonts.googleapis.com/css?family=Jura:400,600,700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./assets/css/sidenav.css" />
+    <link rel="stylesheet" href="./assets/css/sliders.css" />
     <script src="assets/js/lib/jquery-2.1.4.min.js"></script>
     <script src="assets/js/lib/progressbar.min.js"></script>
   </head>
   <body>
+    <div class="menucontainer">
+      <div id="sideNavigation" class=" sidenav">
+        <a href="javascript:void(0)" class="closebtn toggleMenu">&times;</a>
+        <div class="frame1">
+          <h5>WORK TIME</h5>
+          <h6></h6>
+          <div class="range">
+            <input id="range1" type="range" min="0" max="3599" />
+          </div>
+        </div>
+        <div class="frame2">
+          <h5>BREAK TIME</h5>
+          <h6></h6>
+          <div class="range">
+            <input id="range2" type="range" min="0" max="3599" />
+          </div>
+        </div>
+        <div class="frame3">
+          <h5>RATIO (WORK/BREAK)</h5>
+          <h6></h6>
+          <div class="range">
+            <input id="range3" type="range" min="0" max="10" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class=" topnav">
+      <a class="toggleMenu" href="#">
+        <svg class="mySVG" width="30" height="30" id="icoOpen">
+          <path
+            class="burger"
+            d="M0,5 30,5"
+            stroke="#d3d3d3"
+            stroke-width="5"
+          />
+          <path
+            class="burger"
+            d="M0,14 30,14"
+            stroke="#d3d3d3"
+            stroke-width="5"
+          />
+          <path
+            class="burger"
+            d="M0,23 30,23"
+            stroke="#d3d3d3"
+            stroke-width="5"
+          />
+        </svg>
+      </a>
+    </nav>
     <!-- <div class="title">
       <h1>Let's Work!</h1>
     </div> -->
@@ -23,11 +76,17 @@
     <div id="circle" class="container">
       <div class="inner">
         <ul>
-          <li><input class="minutes" type="text" /></li>
-          <li class="colon">:</li>
-          <li><input class="seconds" type="text" /></li>
+          <li class="timer"><input class="minutes" type="text" /></li>
+          <li class="timer colon">:</li>
+          <li class="timer"><input class="seconds" type="text" /></li>
         </ul>
-        <h2>LET'S START</h2>
+
+        <i class="lock fas fa-lock-open"></i>
+
+        <h2>
+          LET'S START<br />
+          (Press Play Button to Begin)
+        </h2>
       </div>
     </div>
     <div class="buttons">
@@ -35,7 +94,7 @@
         <i class="play fas fa-play"></i><i class="pause fas fa-pause"></i>
       </button>
     </div>
-    <button id="resetbtn">RESET</button>
+    <button id="resetbtn"><span>RESET</span></button>
 
     <script src="./assets/js/pomodoro.js" async defer></script>
   </body>

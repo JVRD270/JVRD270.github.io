@@ -1,5 +1,4 @@
 body {
-  width: 50vw;
   margin: 0 auto;
   background-color: #36454f;
   font-family: "jura", sans-serif;
@@ -36,7 +35,7 @@ ul {
   border: 0;
 }
 
-li {
+.timer {
   display: inline-block;
   text-align: center;
   text-transform: uppercase;
@@ -62,7 +61,7 @@ input {
   font-family: "jura", sans-serif;
 }
 
-input:disabled {
+input[type="text"]:disabled {
   border: none;
   text-align: center;
   padding: 0;
@@ -118,10 +117,20 @@ button:focus {
   border: none;
   text-align: center;
   justify-content: center;
-  margin-top: 2vw;
+  margin-top: 1vw;
   width: 100%;
   color: #d3d3d3;
   font-size: medium;
+}
+
+#resetbtn span:hover {
+  transition: all 0s;
+  color: #323232;
+}
+
+#workbtn:hover {
+  transition: all 0s;
+  color: #323232;
 }
 
 .highlight {
@@ -138,4 +147,12 @@ i.pause {
 i.play {
   position: absolute;
   left: 0.3vw;
+}
+
+i.lock {
+  color: white;
+  font-size: 1.6vw;
+  margin: 0;
+  position: relative;
+  width: 100%;
 }
