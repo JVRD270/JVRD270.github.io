@@ -338,7 +338,7 @@ $(".toggleMenu").hover(
 
 /////slider1
 
-slider1.mousedown(function() {
+slider1.on("focus", function() {
   count = 0;
   valueSlider1 = setInterval(function() {
     t = parseInt((parseInt(slider1.val()) / 3599) * (59 * 60 + 59));
@@ -367,7 +367,7 @@ slider1.focusout(function() {
 
 ////// slider2
 
-slider2.mousedown(function() {
+slider2.on("focus", function() {
   count = 0;
   valueSlider2 = setInterval(function() {
     value = $("#range2").val();
@@ -396,7 +396,7 @@ slider2.focusout(function() {
 
 //////slider3
 
-slider3.mousedown(function() {
+slider3.on("focus", function() {
   count = 0;
   valueSlider3 = setInterval(function() {
     ratio = slider3.val() / 10;
@@ -423,7 +423,7 @@ slider3.focusout(function() {
   clearInterval(counter3);
 });
 
-$("input[type='range']").mousedown(function() {
+$("input[type='range']").on("focus", function() {
   count = 0;
   textValuesSliders = setInterval(function() {
     $(".frame1 h6").text(minutes.val() + ":" + seconds.val());
