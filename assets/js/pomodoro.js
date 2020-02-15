@@ -453,6 +453,7 @@ $("input[type='checkbox']").change(function() {
 });
 
 ////phone
+////Slider 1
 
 slider1.on("touchstart", function() {
   count = 0;
@@ -476,7 +477,86 @@ slider1.on("touchstart", function() {
   }, 1000);
 });
 
-slider1.focusout(function() {
+slider1.on("touchend", function() {
   clearInterval(valueSlider1);
   clearInterval(counter1);
+});
+
+/////Slider 2
+
+slider2.on("touchstart", function() {
+  count = 0;
+  valueSlider2 = setInterval(function() {
+    value = $("#range2").val();
+    timeBreak = parseInt((parseInt(slider2.val()) / 3599) * t);
+    if (timeBreak >= t) {
+      timeBreak = t;
+    }
+    ratio = Math.ceil((10 * timeBreak) / t) / 10;
+    if (timeBreak === t) {
+      ratio = 1;
+    }
+  }, 20);
+  counter2 = setInterval(function() {
+    count++;
+    if (count > 300) {
+      clearInterval(valueSlider2);
+      clearInterval(counter2);
+    }
+  }, 1000);
+});
+
+slider2.on("touchend", function() {
+  clearInterval(valueSlider2);
+  clearInterval(counter2);
+});
+
+//////slider3
+
+slider3.on("touchstart", function() {
+  count = 0;
+  valueSlider3 = setInterval(function() {
+    ratio = slider3.val() / 10;
+    timeBreak = Math.ceil(t * ratio);
+    if (timeBreak >= t) {
+      timeBreak = t;
+    }
+    if (timeBreak === t) {
+      ratio = 1;
+    }
+    setTimeBreak;
+  }, 20);
+  counter3 = setInterval(function() {
+    count++;
+    if (count > 300) {
+      clearInterval(valueSlider3);
+      clearInterval(counter3);
+    }
+  }, 1000);
+});
+
+slider3.on("touchend", function() {
+  clearInterval(valueSlider3);
+  clearInterval(counter3);
+});
+
+$("input[type='range']").on("touchstart", function() {
+  count = 0;
+  textValuesSliders = setInterval(function() {
+    $(".frame1 h6").text(minutes.val() + ":" + seconds.val());
+    setTimeBreak(timeBreak);
+    $(".frame3 h6").text(ratio.toString());
+  }, 20);
+  counterTextValues = setInterval(function() {
+    count++;
+    if (count > 300) {
+      clearInterval(textValuesSliders);
+      clearInterval(counterTextValues);
+    }
+  }, 1000);
+});
+
+$("input[type='range']").on("touchend", function() {
+  clearInterval(textValuesSliders);
+  clearInterval(counterTextValues);
 });
