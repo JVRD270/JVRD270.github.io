@@ -451,3 +451,32 @@ $("input[type='checkbox']").change(function() {
     myAudio = new Audio("./assets/app_alert_tone_023.mp3");
   }
 });
+
+////phone
+
+slider1.on("touchstart", function() {
+  count = 0;
+  valueSlider1 = setInterval(function() {
+    t = parseInt((parseInt(slider1.val()) / 3599) * (59 * 60 + 59));
+    if (timeBreak >= t) {
+      timeBreak = t;
+    }
+    ratio = Math.ceil((10 * timeBreak) / t) / 10;
+    if (timeBreak === t) {
+      ratio = 1;
+    }
+    setTimer(t);
+  }, 20);
+  counter1 = setInterval(function() {
+    count++;
+    if (count > 300) {
+      clearInterval(valueSlider1);
+      clearInterval(counter1);
+    }
+  }, 1000);
+});
+
+slider1.focusout(function() {
+  clearInterval(valueSlider1);
+  clearInterval(counter1);
+});
