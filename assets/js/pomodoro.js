@@ -64,6 +64,7 @@ $("input").focusout(function(e) {
     t = 0;
   }
   timeBreak = t * ratio;
+  var currentRatio = ratio;
 
   ratio = Math.ceil((10 * timeBreak) / t) / 10;
   if (timeBreak === t) {
@@ -71,7 +72,7 @@ $("input").focusout(function(e) {
   }
   if (t == 0) {
     timeBreak = 1;
-    ratio = 1;
+    ratio = currentRatio;
   }
   $(".frame3 h6").text(ratio.toString());
   setTimeBreak(timeBreak);
