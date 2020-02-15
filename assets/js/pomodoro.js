@@ -63,11 +63,14 @@ $("input").focusout(function(e) {
   } else if (minutes.val() == "" || seconds.val() == "") {
     t = 0;
   }
-  if (t <= timeBreak) {
-    timeBreak = t;
-  }
+  timeBreak = t * ratio;
+
   ratio = Math.ceil((10 * timeBreak) / t) / 10;
   if (timeBreak === t) {
+    ratio = 1;
+  }
+  if (t == 0) {
+    timeBreak = 1;
     ratio = 1;
   }
   $(".frame3 h6").text(ratio.toString());
