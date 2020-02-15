@@ -451,3 +451,93 @@ $("input[type='checkbox']").change(function() {
     myAudio = new Audio("./assets/app_alert_tone_023.mp3");
   }
 });
+
+////phone
+
+/////slider1
+
+slider1.on("vmouseover", function() {
+  count = 0;
+  valueSlider1 = setInterval(function() {
+    t = parseInt((parseInt(slider1.val()) / 3599) * (59 * 60 + 59));
+    if (timeBreak >= t) {
+      timeBreak = t;
+    }
+    ratio = Math.ceil((10 * timeBreak) / t) / 10;
+    if (timeBreak === t) {
+      ratio = 1;
+    }
+    setTimer(t);
+  }, 20);
+  counter1 = setInterval(function() {
+    count++;
+    if (count > 300) {
+      clearInterval(valueSlider1);
+      clearInterval(counter1);
+    }
+  }, 1000);
+});
+
+////// slider2
+
+// slider2.on("focus", function() {
+//   count = 0;
+//   valueSlider2 = setInterval(function() {
+//     value = $("#range2").val();
+//     timeBreak = parseInt((parseInt(slider2.val()) / 3599) * t);
+//     if (timeBreak >= t) {
+//       timeBreak = t;
+//     }
+//     ratio = Math.ceil((10 * timeBreak) / t) / 10;
+//     if (timeBreak === t) {
+//       ratio = 1;
+//     }
+//   }, 20);
+//   counter2 = setInterval(function() {
+//     count++;
+//     if (count > 300) {
+//       clearInterval(valueSlider2);
+//       clearInterval(counter2);
+//     }
+//   }, 1000);
+// });
+
+// //////slider3
+
+// slider3.on("focus", function() {
+//   count = 0;
+//   valueSlider3 = setInterval(function() {
+//     ratio = slider3.val() / 10;
+//     timeBreak = Math.ceil(t * ratio);
+//     if (timeBreak >= t) {
+//       timeBreak = t;
+//     }
+//     if (timeBreak === t) {
+//       ratio = 1;
+//     }
+//     setTimeBreak;
+//   }, 20);
+//   counter3 = setInterval(function() {
+//     count++;
+//     if (count > 300) {
+//       clearInterval(valueSlider3);
+//       clearInterval(counter3);
+//     }
+//   }, 1000);
+// });
+
+// $("input[type='range']").on("focus", function() {
+//   count = 0;
+//   textValuesSliders = setInterval(function() {
+//     $(".frame1 h6").text(minutes.val() + ":" + seconds.val());
+//     setTimeBreak(timeBreak);
+//     $(".frame3 h6").text(ratio.toString());
+//   }, 20);
+//   counterTextValues = setInterval(function() {
+//     count++;
+//     if (count > 300) {
+//       clearInterval(textValuesSliders);
+//       clearInterval(counterTextValues);
+//     }
+//   }, 1000);
+// });
