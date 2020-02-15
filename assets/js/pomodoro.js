@@ -63,13 +63,15 @@ $("input").focusout(function(e) {
   } else if (minutes.val() == "" || seconds.val() == "") {
     t = 0;
   }
-  timeBreak = ratio * t;
+  if (t <= timeBreak) {
+    timeBreak = t;
+  }
   ratio = Math.ceil((10 * timeBreak) / t) / 10;
   if (timeBreak === t) {
     ratio = 1;
   }
   $(".frame3 h6").text(ratio.toString());
-  setTimeBreak(t);
+  setTimeBreak(timeBreak);
   setTimer(t);
 });
 
@@ -79,9 +81,6 @@ function setTimer(t) {
   minutes.val(("0" + min.toString()).slice(-2));
   seconds.val(("0" + secDisplay.toString()).slice(-2));
   $(".frame1 h6").text(minutes.val() + ":" + seconds.val());
-  if (timeBreak >= t) {
-    timeBreak = t;
-  }
 }
 
 function setTimeBreak(t) {
@@ -136,6 +135,7 @@ function reset() {
   $("input").removeAttr("disabled");
   clearInterval(interval);
   setTimer(t);
+  timeBreak = t * ratio;
   secondClick = true;
   takeBreak = false;
   go = true;
@@ -149,8 +149,9 @@ function reset() {
   $(".burger").css("stroke", "#f2f2f2");
   lockOn(0);
   clearInterval(sound);
-  clearInterval(setValue);
-  clearInterval(counter);
+  clearInterval(counter1);
+  clearInterval(counter2);
+  clearInterval(counter3);
 }
 
 function pomodoro(t) {
@@ -407,7 +408,7 @@ slider3.on("focus", function() {
     if (timeBreak === t) {
       ratio = 1;
     }
-    setTimeBreak;
+    setTimeBreak(timeBreak);
   }, 20);
   counter3 = setInterval(function() {
     count++;
